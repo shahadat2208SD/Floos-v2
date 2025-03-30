@@ -4,7 +4,7 @@ secure-card-features
 
 <section class="relative">
   <div
-    class="container bg-[#F6F8FA] overflow-hidden -z-10 rounded-large relative min-h-[1000px]"
+    class="container bg-[#F6F8FA] overflow-hidden -z-10 rounded-large relative min-h-[776px] md:min-h-[1000px]"
   >
     <!-- content for  Positioning  Area -->
 
@@ -14,23 +14,37 @@ secure-card-features
     </div>
 
     <!-- 2 -->
-    <div class="absolute bottom-[86px] left-1/2 -translate-x-1/2">
-      <img src="images/thumbnail/payment-visa-card.png" alt="Hand Image" />
+    <div
+      class="absolute bottom-[4.5%] md:bottom-[86px] left-1/2 -translate-x-1/2 max-md:w-full px-4"
+    >
+      <img
+        src="images/thumbnail/payment-visa-card.png"
+        alt="Hand Image"
+        class="w-full"
+      />
     </div>
     <!-- 3 -->
-    <div class="absolute top-[50%] left-[10%] -translate-x-[10%]">
+    <div
+      class="absolute top-[50%] left-[10%] -translate-x-[10%] hidden lg:block"
+    >
       <img src="images/thumbnail/badge-card-1.png" alt="Hand Image" />
     </div>
     <!-- 4 -->
-    <div class="absolute top-[45%] left-[29%] -translate-x-[29%]">
+    <div
+      class="absolute top-[45%] left-[29%] -translate-x-[29%] hidden lg:block"
+    >
       <img src="images/icons/shape-arrow-1.svg" alt="Hand Image" />
     </div>
     <!-- 5 -->
-    <div class="absolute bottom-[20%] right-[22%] -z-10 -translate-x-[22%]">
+    <div
+      class="absolute bottom-[20%] right-[22%] -z-10 -translate-x-[22%] hidden lg:block"
+    >
       <img src="images/icons/shape-arrow-2.svg" alt="Hand Image" />
     </div>
     <!-- 6 -->
-    <div class="absolute bottom-[2%] right-[7%] -translate-x-[7%]">
+    <div
+      class="absolute bottom-[2%] right-[7%] -translate-x-[7%] hidden lg:block"
+    >
       <img src="images/thumbnail/badge-card-2.png" alt="Hand Image" />
     </div>
     <!-- 7 -->
@@ -56,7 +70,9 @@ secure-card-features
           >Banking Cards</span
         >
       </div>
-      <h2 class="mb-6">Safe and Secure Banking Cards</h2>
+      <h2 class="mb-4 md:mb-6 max-md:w-[300px] max-md:mx-auto">
+        Safe and Secure Banking Cards
+      </h2>
       <p class="lg:max-w-[784px] mx-auto text-center">
         Secure platforms like Signal, Proton Mail, and Matrix-based messaging
         apps uphold strong encryption standards. Additionally, self-destructing

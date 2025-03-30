@@ -13,11 +13,11 @@
   }
 
   h1 {
-    @apply text-[36px]  md:text-[40px] lg:text-6xl xl:text-[67px] font-semibold xl:leading-[76.38px];
+    @apply text-[40px]  md:text-[40px] lg:text-6xl xl:text-[67px] font-semibold max-md:leading-[46.4px] xl:leading-[76.38px];
   }
 
   h2 {
-    @apply text-[32px] xl:text-[51px] font-bold xl:leading-[59.16px];
+    @apply text-[30px] xl:text-[51px] font-bold leading-[1.2] xl:leading-[59.16px];
   }
 
   h3 {
@@ -36,7 +36,7 @@
     @apply text-base font-normal;
   }
   p {
-    @apply font-Inter text-base font-normal leading-[1.75]  -tracking-[0.3px] text-paragraph;
+    @apply font-Inter text-base font-normal leading-[1.75]   text-paragraph;
   }
   em {
     @apply not-italic;
@@ -48,6 +48,6 @@
 
 @layer utilities {
   .container {
-    @apply mx-auto max-lg:px-5 lg:px-[30px] xl:p-0 xl:max-w-[1440px];
+    @apply mx-auto max-lg:px-4 lg:px-[30px] xl:p-0 xl:max-w-[1440px];
   }
 }
