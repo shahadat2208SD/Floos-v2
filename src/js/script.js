@@ -1,3 +1,22 @@
+// ===============================
+// Smooth Scrolling
+// ===============================
+let lenis;
+const initSmoothScrolling = () => {
+  lenis = new Lenis({
+    lerp: 0.1,
+    smoothWheel: true,
+  });
+
+  lenis.on("scroll", () => ScrollTrigger.update());
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+};
+
 const Components = {
   initFAQ() {
     const faqItems = document.querySelectorAll(".faq-item");
@@ -39,5 +58,8 @@ const Components = {
 // Initialization
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
+  initSmoothScrolling();
+
+  //
   Components.initFAQ();
 });
