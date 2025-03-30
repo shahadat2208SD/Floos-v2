@@ -1,0 +1,9 @@
+// Base Styles
+// -----------
+body {
+  @apply max-w-[100vw] overflow-x-hidden m-0 p-0 antialiased font-Inter bg-primary;
+}
+
+.underline-hover {
+  @apply relative overflow-hidden pb-[1.5px] before:absolute before:bottom-0 before:left-0 before:h-[1.8px] before:w-full before:origin-right before:scale-x-0 before:bg-paragraph  before:transition-transform before:duration-700 duration-700 before:content-[''] before:hover:origin-left before:hover:scale-x-100;
+}
