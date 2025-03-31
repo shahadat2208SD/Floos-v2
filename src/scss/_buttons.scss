@@ -1,5 +1,5 @@
 .btn-light {
-  @apply border border-[#a6a66433] bg-[#F6F8FA] transition-all duration-300 ease-in-out hover:border-[#afaf6833] hover:bg-[#e5e8e9] flex items-center gap-1 py-2.5 rounded pl-6 pr-[18px];
+  @apply border border-[#a6a66433] bg-[#F6F8FA]  transition-all duration-300 ease-in-out  flex items-center gap-1 py-2.5 rounded pl-6 pr-[18px];
   a {
     @apply text-sm font-medium leading-[1.6];
   }
