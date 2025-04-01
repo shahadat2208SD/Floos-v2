@@ -5,7 +5,7 @@
   }
 }
 .btn-light-v2 {
-  @apply bg-primary transition-all duration-300 ease-in-out hover:bg-[#e5e8e9] flex items-center gap-1 py-[14px] rounded pl-[30px] pr-6;
+  @apply bg-primary transition-all duration-300 ease-in-out hover:bg-[#e5e8e9] flex items-center gap-1 py-3 md:py-[14px] rounded pl-6 md:pl-[30px] pr-5 md:pr-6;
   a {
     @apply text-sm text-paragraph font-semibold leading-[1.6];
   }
@@ -23,7 +23,7 @@
   }
 }
 .btn-primary {
-  @apply bg-[#21A90A]  transition-all duration-300 ease-in-out  hover:bg-paragraph flex items-center gap-1 py-[14px] rounded pl-[30px] pr-6;
+  @apply bg-[#21A90A]  transition-all duration-300 ease-in-out  hover:bg-paragraph flex items-center gap-1 py-3 md:py-[14px] rounded pl-6 md:pl-[30px] pr-5 md:pr-6;
   a {
     @apply text-primary text-sm font-semibold leading-[1.7];
   }

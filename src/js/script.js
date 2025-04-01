@@ -54,6 +54,95 @@ const Components = {
   },
 };
 
+const Animations = {
+  initSectionTitles() {
+    const titles = document.querySelectorAll(".text-appear");
+    titles.forEach((title) => {
+      const titleText = new SplitType(title, { types: "lines" });
+      titleText.lines.forEach((lines) => {
+        const lineText = new SplitType(lines, { types: "words" });
+        gsap.from(lineText.words, {
+          scrollTrigger: {
+            trigger: title,
+            start: "top 65%",
+            end: "top 30%",
+            scrub: false,
+          },
+          y: 110,
+          rotation: 21,
+          stagger: 0.02,
+          duration: 0.7,
+          ease: "power2.out",
+        });
+      });
+    });
+  },
+
+  initRevealElements() {
+    const elements = document.querySelectorAll(".reveal-me");
+    elements.forEach((elem) => {
+      gsap.from(elem, {
+        scrollTrigger: {
+          trigger: elem,
+          start: "top 85%",
+          end: "top 50%",
+          scrub: false,
+        },
+        opacity: 0,
+        y: 95,
+        rotation: 2,
+        filter: "blur(10px)",
+        duration: 0.9,
+        stagger: 0.1,
+        ease: "power2.out",
+      });
+    });
+  },
+
+  initHeroMobile() {
+    const heroMobile = document.querySelector(".hero-mobile");
+    if (!heroMobile) return;
+    gsap.from(heroMobile, {
+      x: 70,
+      opacity: 0,
+      duration: 0.8,
+      rotation: 3,
+      scrollTrigger: {
+        trigger: heroMobile,
+        start: "top 85%",
+        end: "top 50%",
+        scrub: false,
+      },
+    });
+  },
+
+  initWorldMap() {
+    const worldMap = document.querySelector(".worldmap");
+    if (!worldMap) return;
+    gsap.from(worldMap, {
+      opacity: 0,
+      scale: 0.98,
+      duration: 0.9,
+    });
+  },
+  initQR_box() {
+    const QR_Box = document.querySelector(".QR_box");
+    if (!QR_Box) return;
+    gsap.from(QR_Box, {
+      y: 70,
+      opacity: 0,
+      duration: 0.8,
+      rotation: 4,
+      scrollTrigger: {
+        trigger: QR_Box,
+        start: "top 85%",
+        end: "top 50%",
+        scrub: false,
+      },
+    });
+  },
+};
+
 // ===============================
 // Initialization
 // ===============================
@@ -62,6 +151,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //
   Components.initFAQ();
+
+  Animations.initSectionTitles();
+  Animations.initRevealElements();
+  Animations.initHeroMobile();
+  Animations.initWorldMap();
+  Animations.initQR_box();
 });
 
 // Mobile Nav --------------
