@@ -52,6 +52,19 @@ const Components = {
     faqItems[0].querySelector(".faq-content").style.height =
       faqItems[0].querySelector(".faq-content").scrollHeight + "px";
   },
+
+  initNavbarAnimation() {
+    const navbarAria = document.querySelector(".navbar-area");
+
+    if (!navbarAria) return;
+
+    gsap.from(navbarAria, {
+      opacity: 0,
+      y: -40,
+      duration: 1.2,
+      ease: "power3.out",
+    });
+  },
 };
 
 const Animations = {
@@ -151,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //
   Components.initFAQ();
+  Components.initNavbarAnimation();
 
   Animations.initSectionTitles();
   Animations.initRevealElements();
