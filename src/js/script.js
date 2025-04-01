@@ -82,9 +82,9 @@ const Animations = {
             scrub: false,
           },
           y: 110,
-          rotation: 21,
+          rotation: 23,
           stagger: 0.02,
-          duration: 0.7,
+          duration: 0.6,
           ease: "power2.out",
         });
       });
@@ -102,9 +102,9 @@ const Animations = {
           scrub: false,
         },
         opacity: 0,
-        y: 95,
-        rotation: 2,
-        filter: "blur(10px)",
+        y: 99,
+        rotation: 3,
+        filter: "blur(14px)",
         duration: 0.9,
         stagger: 0.1,
         ease: "power2.out",
@@ -292,3 +292,10 @@ gsap.set(mobileMenu, {
 // Set initial positions for animated elements
 gsap.set(menuItems, { opacity: 0, x: "2rem" });
 gsap.set(menuButtons, { opacity: 0, y: 10 });
+
+document
+  .getElementById("backToTop")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
