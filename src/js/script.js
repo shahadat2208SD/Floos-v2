@@ -134,8 +134,8 @@ const Animations = {
     if (!worldMap) return;
     gsap.from(worldMap, {
       opacity: 0,
-      scale: 0.98,
-      duration: 0.9,
+      scale: 0.97,
+      duration: 1.6,
     });
   },
   initQR_box() {
@@ -154,6 +154,153 @@ const Animations = {
       },
     });
   },
+  initImageReveal() {
+    const images = document.querySelectorAll(".reveal-image");
+    images.forEach((img) => {
+      gsap.from(img, {
+        scrollTrigger: {
+          trigger: img,
+          start: "top 70%",
+          end: "top 20%",
+          scrub: 1.5,
+        },
+        scale: 1.2,
+        opacity: 0,
+        duration: 1.8,
+        ease: "power3.out",
+        transformOrigin: "center center",
+      });
+    });
+  },
+  initSecureCardAreaAnimations() {
+    const handImage = document.getElementById("hand-img");
+    const paymentImage = document.getElementById("payment-img");
+    const badgeCardImage = document.getElementById("badge-card-img");
+    const badgeCard2Image = document.getElementById("badge-card-2-img");
+    const arrowCard1 = document.getElementById("arrow-shape-1");
+    const arrowCard2 = document.getElementById("arrow-shape-2");
+    const backgroundImage = document.getElementById("background-bg");
+    const blurBackgroundImage = document.getElementById("blur-bg");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: handImage,
+        start: "top 40%",
+        end: "top 50%",
+        scrub: false,
+      },
+    });
+
+    tl.from([handImage, backgroundImage, paymentImage, blurBackgroundImage], {
+      opacity: 0,
+      y: 119,
+      rotation: -5,
+      filter: "blur(7px)",
+      duration: 0.9,
+      stagger: 0.1,
+      ease: "power2.out",
+      willChange: "opacity, transform, filter", // Optimize for blur
+    });
+
+    tl.from(
+      [arrowCard1, arrowCard2],
+      {
+        opacity: 0,
+        y: -80,
+        rotation: 40,
+        filter: "blur(3px)",
+        duration: 1.4,
+        stagger: 0.1,
+        ease: "power3.out",
+        willChange: "opacity, transform, filter",
+      },
+      "<"
+    ); // Animate at the same time as the previous animation
+
+    tl.from(
+      badgeCardImage,
+      {
+        opacity: 0,
+        x: -119,
+        rotation: -19,
+        filter: "blur(7px)",
+        duration: 1.77,
+        ease: "power3.out",
+        willChange: "opacity, transform, filter",
+      },
+      "<"
+    );
+
+    tl.from(
+      badgeCard2Image,
+      {
+        opacity: 0,
+        x: 119,
+        rotation: 19,
+        filter: "blur(7px)",
+        duration: 1.77,
+        ease: "power3.out",
+        willChange: "opacity, transform, filter",
+      },
+      "<"
+    );
+  },
+  // V2 ---------------...............>>>==
+  // initSecureCardAreaAnimations() {
+  //   const elements = {
+  //     hand: document.getElementById("hand-img"),
+  //     payment: document.getElementById("payment-img"),
+  //     badge1: document.getElementById("badge-card-img"),
+  //     badge2: document.getElementById("badge-card-2-img"),
+  //     arrow1: document.getElementById("arrow-shape-1"),
+  //     arrow2: document.getElementById("arrow-shape-2"),
+  //     bg: document.getElementById("background-bg"),
+  //     blurBg: document.getElementById("blur-bg"),
+  //   };
+
+  //   const scrollConfig = {
+  //     trigger: elements.hand,
+  //     start: "top 40%",
+  //     end: "top 50%",
+  //     scrub: false,
+  //   };
+
+  //   // Timeline for sequenced animations
+  //   const tl = gsap.timeline({ scrollTrigger: scrollConfig });
+  //   tl.from([elements.hand, elements.bg, elements.payment, elements.blurBg], {
+  //     opacity: 0,
+  //     y: 50,
+  //     duration: 0.8,
+  //     ease: "power2.out",
+  //     stagger: 0.1,
+  //   })
+  //   .from([elements.arrow1, elements.arrow2], {
+  //     opacity: 0,
+  //     y: -30,
+  //     duration: 1,
+  //     ease: "back.out",
+  //   }, "-=0.5")
+  //   .from(elements.badge1, {
+  //     x: -100,
+  //     opacity: 0,
+  //     duration: 1.2,
+  //   }, "-=0.7")
+  //   .from(elements.badge2, {
+  //     x: 100,
+  //     opacity: 0,
+  //     duration: 1.2,
+  //   }, "-=1");
+  // }
+
+  initBackToTop() {
+    const backToTopButton = document.getElementById("backToTop");
+    if (backToTopButton) {
+      backToTopButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  },
 };
 
 // ===============================
@@ -171,6 +318,9 @@ document.addEventListener("DOMContentLoaded", () => {
   Animations.initHeroMobile();
   Animations.initWorldMap();
   Animations.initQR_box();
+  Animations.initImageReveal();
+  Animations.initSecureCardAreaAnimations();
+  Animations.initBackToTop();
 });
 
 // Mobile Nav --------------
@@ -292,10 +442,3 @@ gsap.set(mobileMenu, {
 // Set initial positions for animated elements
 gsap.set(menuItems, { opacity: 0, x: "2rem" });
 gsap.set(menuButtons, { opacity: 0, y: 10 });
-
-document
-  .getElementById("backToTop")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
