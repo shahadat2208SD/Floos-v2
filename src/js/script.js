@@ -53,40 +53,145 @@ const Components = {
       faqItems[0].querySelector(".faq-content").scrollHeight + "px";
   },
 
-  initNavbarAnimation() {
-    const navbarAria = document.querySelector(".navbar-area");
+  // Mobile Nav --------------
 
-    if (!navbarAria) return;
+  initMobileNavbarCloseOpen() {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const closeMenuButton = document.getElementById("close-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuItems = document.querySelectorAll("#menu-items li");
+    const menuButtons = document.getElementById("menu-buttons");
 
-    gsap.from(navbarAria, {
-      opacity: 0,
-      y: -40,
-      duration: 1.2,
-      ease: "power3.out",
+    function openMenu() {
+      // Make menu visible and interactive
+      gsap.set(mobileMenu, {
+        display: "block",
+        pointerEvents: "auto",
+      });
+
+      // Animate menu appearance
+      const tl = gsap.timeline();
+
+      // Fade in the menu background
+      tl.to(mobileMenu, {
+        opacity: 1,
+
+        duration: 0.5,
+        ease: "power2.out",
+      });
+
+      // Staggered animation for menu items
+      tl.to(
+        menuItems,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.4,
+          stagger: 0.02,
+          ease: "back.out(1.4)",
+        },
+        "-=0.1"
+      );
+
+      // Animate buttons
+      tl.to(
+        menuButtons,
+        {
+          opacity: 1,
+          y: -50,
+          duration: 0.4,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      );
+
+      // Prevent body scrolling
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // Hide menu completely when animation is done
+          gsap.set(mobileMenu, {
+            display: "none",
+            pointerEvents: "none",
+          });
+
+          // Reset item positions for next open
+          gsap.set(menuItems, { opacity: 0, x: "2rem" });
+
+          // Allow body scrolling
+          document.body.style.overflow = "";
+        },
+      });
+
+      // Fade out buttons first
+      tl.to(menuButtons, {
+        opacity: 0,
+        y: 10,
+        duration: 0.3,
+        ease: "power2.in",
+      });
+
+      // Staggered exit for menu items
+      tl.to(
+        menuItems,
+        {
+          opacity: 0,
+          x: "1rem",
+          duration: 0.3,
+          stagger: 0.03,
+          ease: "power2.in",
+        },
+        "-=0.2"
+      );
+
+      // Finally fade out the whole menu
+      tl.to(
+        mobileMenu,
+        {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.in",
+        },
+        "-=0.2"
+      );
+    }
+
+    mobileMenuButton.addEventListener("click", openMenu);
+    closeMenuButton.addEventListener("click", closeMenu);
+
+    //  menu is hidden initially
+    gsap.set(mobileMenu, {
+      display: "none",
+      pointerEvents: "none",
     });
+
+    // Set initial positions for animated elements
+    gsap.set(menuItems, { opacity: 0, x: "2rem" });
+    gsap.set(menuButtons, { opacity: 0, y: 10 });
   },
 };
 
 const Animations = {
-  initSectionTitles() {
-    const titles = document.querySelectorAll(".text-appear");
-    titles.forEach((title) => {
-      const titleText = new SplitType(title, { types: "lines" });
-      titleText.lines.forEach((lines) => {
-        const lineText = new SplitType(lines, { types: "words" });
-        gsap.from(lineText.words, {
-          scrollTrigger: {
-            trigger: title,
-            start: "top 65%",
-            end: "top 30%",
-            scrub: false,
-          },
-          y: 110,
-          rotation: 23,
-          stagger: 0.02,
-          duration: 0.6,
-          ease: "power2.out",
-        });
+  initRevealElementsV2() {
+    const elements = document.querySelectorAll(".reveal-me-2");
+    elements.forEach((elem) => {
+      gsap.from(elem, {
+        scrollTrigger: {
+          trigger: elem,
+          start: "top 90%",
+          end: "top 50%",
+          scrub: false,
+        },
+        opacity: 0,
+        y: 99,
+        rotation: 3,
+        filter: "blur(7px)",
+        duration: 0.9,
+
+        ease: "power2.out",
       });
     });
   },
@@ -112,7 +217,7 @@ const Animations = {
     });
   },
 
-  initHeroMobile() {
+  initHeroMobileAnimation() {
     const heroMobile = document.querySelector(".hero-mobile");
     if (!heroMobile) return;
     gsap.from(heroMobile, {
@@ -135,7 +240,7 @@ const Animations = {
     gsap.from(worldMap, {
       opacity: 0,
       scale: 0.97,
-      duration: 1.6,
+      duration: 1.7,
     });
   },
   initQR_box() {
@@ -185,7 +290,7 @@ const Animations = {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: handImage,
-        start: "top 40%",
+        start: "top 48%",
         end: "top 50%",
         scrub: false,
       },
@@ -207,6 +312,7 @@ const Animations = {
       {
         opacity: 0,
         y: -80,
+
         rotation: 40,
         filter: "blur(3px)",
         duration: 1.4,
@@ -301,6 +407,30 @@ const Animations = {
       });
     }
   },
+
+  initLinkTransition() {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          // Smooth scroll to target
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+
+          // Optional: Update URL without jumping
+          history.pushState(null, null, targetId);
+        }
+      });
+    });
+  },
 };
 
 // ===============================
@@ -311,134 +441,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //
   Components.initFAQ();
-  Components.initNavbarAnimation();
+  Components.initMobileNavbarCloseOpen();
 
-  Animations.initSectionTitles();
+  Animations.initRevealElementsV2();
   Animations.initRevealElements();
-  Animations.initHeroMobile();
+  Animations.initHeroMobileAnimation();
   Animations.initWorldMap();
   Animations.initQR_box();
   Animations.initImageReveal();
   Animations.initSecureCardAreaAnimations();
   Animations.initBackToTop();
+  Animations.initLinkTransition();
 });
-
-// Mobile Nav --------------
-const mobileMenuButton = document.getElementById("mobile-menu-button");
-const closeMenuButton = document.getElementById("close-menu-button");
-const mobileMenu = document.getElementById("mobile-menu");
-const menuItems = document.querySelectorAll("#menu-items li");
-const menuButtons = document.getElementById("menu-buttons");
-
-// Open menu function with GSAP
-function openMenu() {
-  // Make menu visible and interactive
-  gsap.set(mobileMenu, {
-    display: "block",
-    pointerEvents: "auto",
-  });
-
-  // Animate menu appearance
-  const tl = gsap.timeline();
-
-  // Fade in the menu background
-  tl.to(mobileMenu, {
-    opacity: 1,
-
-    duration: 0.5,
-    ease: "power2.out",
-  });
-
-  // Staggered animation for menu items
-  tl.to(
-    menuItems,
-    {
-      opacity: 1,
-      x: 0,
-      duration: 0.4,
-      stagger: 0.02,
-      ease: "back.out(1.4)",
-    },
-    "-=0.1"
-  );
-
-  // Animate buttons
-  tl.to(
-    menuButtons,
-    {
-      opacity: 1,
-      y: -50,
-      duration: 0.4,
-      ease: "power2.out",
-    },
-    "-=0.2"
-  );
-
-  // Prevent body scrolling
-  document.body.style.overflow = "hidden";
-}
-
-// Close menu function with GSAP
-function closeMenu() {
-  const tl = gsap.timeline({
-    onComplete: () => {
-      // Hide menu completely when animation is done
-      gsap.set(mobileMenu, {
-        display: "none",
-        pointerEvents: "none",
-      });
-
-      // Reset item positions for next open
-      gsap.set(menuItems, { opacity: 0, x: "2rem" });
-
-      // Allow body scrolling
-      document.body.style.overflow = "";
-    },
-  });
-
-  // Fade out buttons first
-  tl.to(menuButtons, {
-    opacity: 0,
-    y: 10,
-    duration: 0.3,
-    ease: "power2.in",
-  });
-
-  // Staggered exit for menu items
-  tl.to(
-    menuItems,
-    {
-      opacity: 0,
-      x: "1rem",
-      duration: 0.3,
-      stagger: 0.03,
-      ease: "power2.in",
-    },
-    "-=0.2"
-  );
-
-  // Finally fade out the whole menu
-  tl.to(
-    mobileMenu,
-    {
-      opacity: 0,
-      duration: 0.3,
-      ease: "power2.in",
-    },
-    "-=0.2"
-  );
-}
-
-// Event listeners
-mobileMenuButton.addEventListener("click", openMenu);
-closeMenuButton.addEventListener("click", closeMenu);
-
-// Initialize - ensure menu is hidden initially
-gsap.set(mobileMenu, {
-  display: "none",
-  pointerEvents: "none",
-});
-
-// Set initial positions for animated elements
-gsap.set(menuItems, { opacity: 0, x: "2rem" });
-gsap.set(menuButtons, { opacity: 0, y: 10 });
