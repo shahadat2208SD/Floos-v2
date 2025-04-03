@@ -12,12 +12,66 @@
 
     <ul class="flex items-center gap-x-2.5">
       <!-- Download App Button - Visible on mobile -->
-      <li class="btn-dark flex items-center">
-        <a href="#" class="text-sm font-medium leading-[1.6] mr-2"
-          >Download App</a
+      <a href="#">
+        <li
+          class="bg-paragraph hover:bg-primary border border-inherit hover:border hover:border-[#a6a66433] flex items-center gap-1 py-2.5 rounded pl-6 pr-[18px] group transition-all duration-500 ease-in-out"
         >
-        <img src="images/icons/receive-square.svg" alt="icon" />
-      </li>
+          <div
+            class="text-sm font-medium leading-[1.6] mr-2 relative overflow-hidden inline-flex flex-col h-6"
+          >
+            <span
+              class="group-hover:-translate-y-full transition-transform duration-500 ease-in-out text-primary"
+            >
+              Download App
+            </span>
+
+            <span
+              class="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"
+            >
+              Download App
+            </span>
+          </div>
+          <!-- Icon -->
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M6.00016 14.6667H10.0002C13.3335 14.6667 14.6668 13.3333 14.6668 10V6C14.6668 2.66666 13.3335 1.33333 10.0002 1.33333H6.00016C2.66683 1.33333 1.3335 2.66666 1.3335 6V10C1.3335 13.3333 2.66683 14.6667 6.00016 14.6667Z"
+                class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M6 7.67334L8 9.67334L10 7.67334"
+                class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 9.67333V4.34"
+                class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4 11.0067C6.59333 11.8733 9.40667 11.8733 12 11.0067"
+                class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </li>
+      </a>
 
       <!-- Mobile menu button -->
       <button id="mobile-menu-button" class="focus:outline-none">
@@ -86,6 +140,7 @@
     </div>
 
     <!-- Mobile menu items with staggered animation -->
+
     <nav class="px-4 py-2">
       <ul id="menu-items">
         <li
@@ -198,26 +253,87 @@
       <!-- Action buttons -->
 
       <ul id="menu-buttons" class="mt-[90px] space-y-4 opacity-0">
-        <li
-          class="btn-light !py-3.5 flex justify-center items-center group hover:bg-paragraph"
-        >
-          <a
-            href="#"
-            class="text-sm font-semibold leading-[1.6] mr-1 group-hover:text-primary"
-            >Get Started</a
+        <a href="" class="block">
+          <li
+            class="border border-[#a6a66433] hover:border-[#d6a92cab] bg-[#F6F8FA] group transition-all duration-500 ease-in-out flex items-center gap-1 !py-3.5 justify-center rounded group hover:bg-slate-200"
           >
-          <img src="images/icons/user-circle.svg" alt="icon" />
-        </li>
-        <li
-          class="btn-dark !py-3.5 flex justify-center items-center group hover:border hover:border-[#F6F8FA] hover:bg-primary"
-        >
-          <a
-            href="#"
-            class="text-sm font-semibold leading-[1.6] mr-1 group-hover:text-paragraph"
-            >Download App</a
+            <div
+              class="text-sm font-medium leading-[1.6] mr-2 relative overflow-hidden flex flex-col"
+            >
+              <span
+                class="group-hover:-translate-y-full transition-transform duration-500 ease-in-out"
+              >
+                Get Started
+              </span>
+              <span
+                class="absolute translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"
+              >
+                Get Started
+              </span>
+            </div>
+            <img src="images/icons/user-circle.svg" alt="icon" />
+          </li>
+        </a>
+        <a href="#" class="block">
+          <li
+            class="bg-paragraph hover:bg-primary border border-inherit hover:border hover:border-[#a6a66433] flex justify-center items-center gap-1 py-2.5 rounded pl-6 pr-[18px] group transition-all duration-500 ease-in-out"
           >
-          <img src="images/icons/receive-square.svg" alt="icon" />
-        </li>
+            <div
+              class="text-sm font-medium leading-[1.6] mr-2 relative overflow-hidden flex flex-col items-center h-6"
+            >
+              <span
+                class="group-hover:-translate-y-full transition-transform duration-500 ease-in-out text-primary"
+              >
+                Download App
+              </span>
+
+              <span
+                class="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"
+              >
+                Download App
+              </span>
+            </div>
+            <!-- Icon -->
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M6.00016 14.6667H10.0002C13.3335 14.6667 14.6668 13.3333 14.6668 10V6C14.6668 2.66666 13.3335 1.33333 10.0002 1.33333H6.00016C2.66683 1.33333 1.3335 2.66666 1.3335 6V10C1.3335 13.3333 2.66683 14.6667 6.00016 14.6667Z"
+                  class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6 7.67334L8 9.67334L10 7.67334"
+                  class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 9.67333V4.34"
+                  class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4 11.0067C6.59333 11.8733 9.40667 11.8733 12 11.0067"
+                  class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </li>
+        </a>
       </ul>
     </nav>
   </div>
@@ -275,18 +391,89 @@
       </ul>
 
       <ul class="flex space-x-2">
-        <li class="btn-light flex items-center">
-          <a href="#" class="text-sm font-medium leading-[1.6] mr-2"
-            >Get Started</a
+        <a href="#">
+          <li
+            class="border border-[#a6a66433] hover:border-[#d6a92cab] bg-[#F6F8FA] group transition-all duration-500 ease-in-out flex items-center gap-1 py-2.5 rounded pl-6 pr-[18px]"
           >
-          <img src="images/icons/user-circle.svg" alt="icon" />
-        </li>
-        <li class="btn-dark flex items-center">
-          <a href="#" class="text-sm font-medium leading-[1.6] mr-2"
-            >Download App</a
+            <div
+              class="text-sm font-medium leading-[1.6] mr-2 relative overflow-hidden flex flex-col"
+            >
+              <span
+                class="group-hover:-translate-y-full transition-transform duration-500 ease-in-out"
+              >
+                Get Started
+              </span>
+              <span
+                class="absolute translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"
+              >
+                Get Started
+              </span>
+            </div>
+
+            <img src="images/icons/user-circle.svg" alt="icon" />
+          </li>
+        </a>
+
+        <a href="#">
+          <li
+            class="bg-paragraph hover:bg-primary border border-inherit hover:border hover:border-[#a6a66433] flex items-center gap-1 py-2.5 rounded pl-6 pr-[18px] group transition-all duration-500 ease-in-out"
           >
-          <img src="images/icons/receive-square.svg" alt="icon" />
-        </li>
+            <div
+              class="text-sm font-medium leading-[1.6] mr-2 relative overflow-hidden inline-flex flex-col h-6"
+            >
+              <span
+                class="group-hover:-translate-y-full transition-transform duration-500 ease-in-out text-primary"
+              >
+                Download App
+              </span>
+
+              <span
+                class="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"
+              >
+                Download App
+              </span>
+            </div>
+            <!-- Icon -->
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M6.00016 14.6667H10.0002C13.3335 14.6667 14.6668 13.3333 14.6668 10V6C14.6668 2.66666 13.3335 1.33333 10.0002 1.33333H6.00016C2.66683 1.33333 1.3335 2.66666 1.3335 6V10C1.3335 13.3333 2.66683 14.6667 6.00016 14.6667Z"
+                  class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6 7.67334L8 9.67334L10 7.67334"
+                  class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 9.67333V4.34"
+                  class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4 11.0067C6.59333 11.8733 9.40667 11.8733 12 11.0067"
+                  class="group-hover:stroke-[#020500] stroke-white duration-150 ease-in-out"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </li>
+        </a>
       </ul>
     </div>
   </nav>
