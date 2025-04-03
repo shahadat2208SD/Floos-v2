@@ -1,12 +1,12 @@
 {
-  "name": "staticmania-tailwind-starter-kit",
+  "name": "floos-landing-page",
   "version": "1.0.0",
   "description": "Gulp environment for creating Website with tailwindcss",
   "keywords": [
     "gulp",
     "frontend"
   ],
-  "author": "StaticMania",
+  "author": "zahidhasan6999@gmail.com",
   "scripts": {
     "build": "gulp",
     "dev": "gulp dev"
