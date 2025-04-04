@@ -48,3 +48,25 @@ html.lenis {
 .reveal-me {
   @apply overflow-hidden;
 }
+
+// HeadRoom Css
+
+.headroom {
+  .gradient-shadow,
+  .nav-top {
+    will-change: transform;
+    transition: transform 400ms linear;
+  }
+}
+.headroom--pinned {
+  .gradient-shadow,
+  .nav-top {
+    transform: translateY(0%);
+  }
+}
+.headroom--unpinned {
+  .gradient-shadow,
+  .nav-top {
+    transform: translateY(-100%);
+  }
+}

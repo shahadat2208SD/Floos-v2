@@ -53,8 +53,17 @@ const Components = {
       faqItems[0].querySelector(".faq-content").scrollHeight + "px";
   },
 
-  // Mobile Nav --------------
+  // HeadRoom-----------------
+  initHeaderRoom() {
+    const myElement = document.getElementById("header");
+    if (myElement) {
+      const headroom = new Headroom(myElement);
+      console.log("headroom");
+      headroom.init();
+    }
+  },
 
+  // Mobile Nav --------------
   initMobileNavbarCloseOpen() {
     const mobileMenuButton = document.getElementById("mobile-menu-button");
     const closeMenuButton = document.getElementById("close-menu-button");
@@ -441,6 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //
   Components.initFAQ();
+  Components.initHeaderRoom();
   Components.initMobileNavbarCloseOpen();
 
   Animations.initRevealElementsV2();
