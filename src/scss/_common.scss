@@ -78,3 +78,41 @@ html.lenis {
   transform: translateY(-100%);
   opacity: 0.98;
 }
+
+// -----------------
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  padding: 6px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(143, 142, 142, 0.1);
+  min-width: 92px;
+  z-index: 100;
+
+  /* Smooth Transition */
+  opacity: 0;
+  transform: translateX(20px);
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s;
+}
+
+.language-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.dropdown-item {
+  @apply block text-sm py-[3px] px-1 font-semibold leading-[1.6] rounded-[6px] transition-colors duration-300 ease-in-out;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f4f1;
+}

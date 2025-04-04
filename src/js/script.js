@@ -81,6 +81,7 @@ const Components = {
     const closeMenuButton = document.getElementById("close-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
     const menuItems = document.querySelectorAll("#menu-items li");
+
     const menuButtons = document.getElementById("menu-buttons");
 
     function openMenu() {
