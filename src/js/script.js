@@ -217,6 +217,26 @@ const Animations = {
       });
     });
   },
+  initRevealElementsV3() {
+    const elements = document.querySelectorAll(".reveal-me-3");
+    elements.forEach((elem) => {
+      gsap.from(elem, {
+        scrollTrigger: {
+          trigger: elem,
+          start: "top 98%",
+          end: "top 50%",
+          scrub: false,
+        },
+        opacity: 0,
+        y: 99,
+        rotation: 3,
+        filter: "blur(7px)",
+        duration: 0.9,
+
+        ease: "power2.out",
+      });
+    });
+  },
 
   initRevealElements() {
     const elements = document.querySelectorAll(".reveal-me");
@@ -312,7 +332,7 @@ const Animations = {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: handImage,
-        start: "top 48%",
+        start: "top 44%",
         end: "top 50%",
         scrub: false,
       },
@@ -373,52 +393,6 @@ const Animations = {
       "<"
     );
   },
-  // V2 ---------------...............>>>==
-  // initSecureCardAreaAnimations() {
-  //   const elements = {
-  //     hand: document.getElementById("hand-img"),
-  //     payment: document.getElementById("payment-img"),
-  //     badge1: document.getElementById("badge-card-img"),
-  //     badge2: document.getElementById("badge-card-2-img"),
-  //     arrow1: document.getElementById("arrow-shape-1"),
-  //     arrow2: document.getElementById("arrow-shape-2"),
-  //     bg: document.getElementById("background-bg"),
-  //     blurBg: document.getElementById("blur-bg"),
-  //   };
-
-  //   const scrollConfig = {
-  //     trigger: elements.hand,
-  //     start: "top 40%",
-  //     end: "top 50%",
-  //     scrub: false,
-  //   };
-
-  //   // Timeline for sequenced animations
-  //   const tl = gsap.timeline({ scrollTrigger: scrollConfig });
-  //   tl.from([elements.hand, elements.bg, elements.payment, elements.blurBg], {
-  //     opacity: 0,
-  //     y: 50,
-  //     duration: 0.8,
-  //     ease: "power2.out",
-  //     stagger: 0.1,
-  //   })
-  //   .from([elements.arrow1, elements.arrow2], {
-  //     opacity: 0,
-  //     y: -30,
-  //     duration: 1,
-  //     ease: "back.out",
-  //   }, "-=0.5")
-  //   .from(elements.badge1, {
-  //     x: -100,
-  //     opacity: 0,
-  //     duration: 1.2,
-  //   }, "-=0.7")
-  //   .from(elements.badge2, {
-  //     x: 100,
-  //     opacity: 0,
-  //     duration: 1.2,
-  //   }, "-=1");
-  // }
 
   initBackToTop() {
     const backToTopButton = document.getElementById("backToTop");
@@ -467,6 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Components.initMobileNavbarCloseOpen();
 
   Animations.initRevealElementsV2();
+  Animations.initRevealElementsV3();
   Animations.initRevealElements();
   Animations.initHeroMobileAnimation();
   Animations.initWorldMap();
