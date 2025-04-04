@@ -50,23 +50,21 @@ html.lenis {
 }
 
 // HeadRoom Css
-
 .headroom {
-  .gradient-shadow,
-  .nav-top {
-    will-change: transform;
-    transition: transform 400ms linear;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500000000000;
+  will-change: transform;
+  transition: transform 400ms linear;
+  background-color: white;
 }
+
 .headroom--pinned {
-  .gradient-shadow,
-  .nav-top {
-    transform: translateY(0%);
-  }
+  transform: translateY(0%);
 }
+
 .headroom--unpinned {
-  .gradient-shadow,
-  .nav-top {
-    transform: translateY(-100%);
-  }
+  transform: translateY(-100%);
 }

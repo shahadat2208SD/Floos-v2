@@ -57,8 +57,20 @@ const Components = {
   initHeaderRoom() {
     const myElement = document.getElementById("header");
     if (myElement) {
-      const headroom = new Headroom(myElement);
-      console.log("headroom");
+      const options = {
+        offset: 100,
+        tolerance: 10,
+        classes: {
+          initial: "headroom",
+          pinned: "headroom--pinned",
+          unpinned: "headroom--unpinned",
+          top: "headroom--top",
+          notTop: "headroom--not-top",
+          bottom: "headroom--bottom",
+          notBottom: "headroom--not-bottom",
+        },
+      };
+      const headroom = new Headroom(myElement, options);
       headroom.init();
     }
   },
