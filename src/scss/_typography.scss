@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Noto+Sans+Arabic:wght@100..900&display=swap");
 @layer base {
   * {
     @apply text-paragraph;
@@ -43,6 +43,19 @@
   }
   a {
     @apply inline-block font-Inter text-base font-normal leading-[1.75]  -tracking-[0.3px]  text-paragraph;
+  }
+  .arabic-text {
+    @apply font-NotoArabic;
+    direction: rtl;
+    text-align: right;
+  }
+
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  [dir="auto"] {
+    text-align: start;
   }
 }
 
