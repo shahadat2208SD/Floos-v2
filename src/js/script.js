@@ -295,7 +295,7 @@ const Animations = {
       rotation: 4,
       scrollTrigger: {
         trigger: QR_Box,
-        start: "top 85%",
+        start: "top 90%",
         end: "top 50%",
         scrub: false,
       },
@@ -332,7 +332,7 @@ const Animations = {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: handImage,
-        start: "top 44%",
+        start: "top 56%",
         end: "top 50%",
         scrub: false,
       },
