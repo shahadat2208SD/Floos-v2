@@ -22,6 +22,7 @@ module.exports = {
       fontFamily: {
         Inter: ["Inter Tight"],
         Manrope: ["Manrope"],
+        NotoArabic: ["Noto Sans Arabic"],
       },
       colors: {
         primary: {
