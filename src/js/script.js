@@ -33,6 +33,7 @@ const Components = {
           if (otherItem !== item) {
             otherItem.classList.remove("active");
             otherItem.querySelector(".faq-content").style.height = "0px";
+            content.style.marginTop = "0px"
           }
         });
 
@@ -40,9 +41,13 @@ const Components = {
         if (isOpen) {
           item.classList.remove("active");
           content.style.height = "0px";
+          content.style.marginTop = "0px"
+          
         } else {
           item.classList.add("active");
           content.style.height = content.scrollHeight + "px";
+          content.style.marginTop = "10px"
+          
         }
       });
     });
